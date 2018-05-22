@@ -3,6 +3,11 @@ package core.util;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
+/**
+ * 返回不重复随机数的类
+ * @author 87663
+ *
+ */
 public class RandomUniqueNumber {
 
 	private int[] temp;
@@ -11,6 +16,11 @@ public class RandomUniqueNumber {
 	
 	static Random r=new Random();
 
+	/**
+	 * 构造器
+	 * @param from 随机数从多少开始（包含）
+	 * @param to 随机数到多少结束（包含）
+	 */
 	public RandomUniqueNumber(int from,int to) {
 		if(from>to)
 			throw new IllegalArgumentException("From can't be bigger than to");
@@ -21,6 +31,10 @@ public class RandomUniqueNumber {
 			temp[j]=i;
 	}
 	
+	/**
+	 * 获得一个不重复的随机数
+	 * @return 一个不重复的随机数
+	 */
 	public int getNum(){
 		if(length==0)
 			throw new NoSuchElementException("No more number");
@@ -31,16 +45,10 @@ public class RandomUniqueNumber {
 		return n;
 	}
 	
+	/**
+	 * 重置该随机数生成器
+	 */
 	public void reSet(){
 		length=allLength;
-	}
-	
-	public static void main(String[] args) {
-		RandomUniqueNumber r=new RandomUniqueNumber(0,10);
-		for(int i=0;i<=10;i++)
-			System.out.println(r.getNum());
-		r.reSet();
-		for(int i=0;i<=10;i++)
-			System.out.println(r.getNum());
 	}
 }
